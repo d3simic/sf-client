@@ -1,0 +1,10 @@
+{
+    "name": "cfu-package/sf-client",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Domagoj Šimić"
+        }
+    ],
+    "require": {}
+}

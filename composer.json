@@ -7,5 +7,10 @@
         }
     ],
     "require": {
+    },
+    "autoload": {
+        "psr-4": {
+            "CfuPackage\\SfClient\\" : "vendor/cfu-package/sf-client/src"
+        }
     }
 }

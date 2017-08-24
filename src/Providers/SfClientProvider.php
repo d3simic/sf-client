@@ -14,7 +14,7 @@ class SfClientProvider extends ServiceProvider
     public function boot()
     {
         $this->publishes([
-           '../' __DIR__.'/config/SfClient.php' => config_path('SfClient.php'),
+            __DIR__.'/../config/SfClient.php' => config_path('SfClient.php')
         ]);
     }
 

@@ -27,5 +27,12 @@ class SfWrapper implements SfClientInterface
 		$result = $this->client->create($sObjectArray, $type);
 
 		return $result;
+	}
+
+	public function upsert($sObjectArray, $type, $id_field, $id)
+	{
+		$result = $this->client->upsert($sObjectArray, $type, $id_field, $id);
+
+		return $result;
 	}	
 }

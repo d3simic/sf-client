@@ -62,4 +62,28 @@ use CfuPackage\SfClient\Contracts\SfClientInterface;
 
 		return $result;
  	}
+
+ 	public function upsert($sObjectArray, $type, $id_field, $id)
+ 	{
+ 		$sObjectJson = json_encode($sObjectArray);
+ 		
+ 		$curl = curl_init();
+
+		curl_setopt($curl, CURLOPT_URL, $this->serverUrl.'/services/data/v40.0/sobjects/'.$type.'/'.$id_field.'/'.$id);
+		curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+			'Content-Type: application/json',
+			'Content-Length: '.strlen($sObjectJson),
+			'Authorization: Bearer '.$this->sessionId
+		));
+		curl_setopt($curl, CURLOPT_POST, true);
+		curl_setopt($curl, CURLOPT_POSTFIELDS, $sObjectJson);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+		$result = json_decode(curl_exec($curl));
+
+		curl_close ($curl);
+
+
+		return $result;
+ 	}
  } 

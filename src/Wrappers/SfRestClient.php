@@ -75,7 +75,7 @@ use CfuPackage\SfClient\Contracts\SfClientInterface;
 			'Content-Length: '.strlen($sObjectJson),
 			'Authorization: Bearer '.$this->sessionId
 		));
-		curl_setopt($curl, CURLOPT_POST, true);
+		curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'PATCH');
 		curl_setopt($curl, CURLOPT_POSTFIELDS, $sObjectJson);
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
